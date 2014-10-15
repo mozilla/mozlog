@@ -1,0 +1,28 @@
+{
+  "name": "mozlog",
+  "version": "0.1.0",
+  "description": "Logging utility that outputs records for Heka.",
+  "main": "lib/index.js",
+  "dependencies": {
+    "intel": "1.0.0-b6",
+    "merge": "~1.2.0"
+  },
+  "devDependencies": {
+    "insist": "~0.2.3",
+    "mocha": "~1.21.4",
+    "tv4": "~1.1.0"
+  },
+  "scripts": {
+    "test": "mocha --check-leaks --ui bdd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mozilla/mozlog"
+  },
+  "author": "Sean McArthur <sean.monstar@gmail.com> (http://seanmonstar.com/)",
+  "license": "MPLv2.0",
+  "bugs": {
+    "url": "https://github.com/mozilla/mozlog/issues"
+  },
+  "homepage": "https://github.com/mozilla/mozlog"
+}
