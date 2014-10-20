@@ -19,7 +19,8 @@ can pass a `config` property to have fine-grained control.
 require('mozlog').config({
   name: 'fxa-oauth-server',
   level: 'verbose', //default is INFO
-  fmt: 'pretty' //default is 'heka'
+  fmt: 'pretty', //default is 'heka'
+  debug: true, //default is false
 });
 ```
 
@@ -41,3 +42,7 @@ log.debug('newClient', { id: client.id, name: client.name });
 First parameter is a string "op". It should be unique within the file.
 Second parameter is some optional object, with keys and values that
 would make sense when looking at the logs again.
+
+The `debug` option (not level) in the config will add in some asserts
+that your usage adheres to the above: that there's only ever at most 2
+arguments to a log function, the first is a string without spaces.
