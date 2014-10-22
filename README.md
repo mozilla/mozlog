@@ -17,7 +17,7 @@ can pass a `config` property to have fine-grained control.
 ```js
 // once, such as at app startup
 require('mozlog').config({
-  name: 'fxa-oauth-server',
+  app: 'fxa-oauth-server',
   level: 'verbose', //default is INFO
   fmt: 'pretty', //default is 'heka'
   debug: true, //default is false
