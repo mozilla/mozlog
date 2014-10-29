@@ -1,5 +1,8 @@
 # mozlog
 
+[![NPM version](https://badge.fury.io/js/mozlog.svg)](http://badge.fury.io/js/mozlog)
+[![Build Status](https://travis-ci.org/mozilla/mozlog.svg?branch=master)](https://travis-ci.org/mozilla/mozlog)
+
 A logger that outputs JSON that adheres to Heka's expected schema.
 
 ```
