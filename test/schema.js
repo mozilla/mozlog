@@ -21,7 +21,7 @@ var writer = {
   }
 };
 
-var logger = fxaLog('test.schema');
+var logger = fxaLog("test.schema");
 logger.propagate = false;
 var handler = new intel.handlers.Stream({
   stream: writer,
@@ -41,6 +41,29 @@ describe('schema', function() {
     var out = log('foo');
     assert(tv4.validate(out, HEKA_SCHEMA));
     assert.equal(out.Type, 'test.schema.foo');
+  });
+
+  describe("with emtpy namespace", function() {
+    var oldLogger;
+
+    beforeEach(function() {
+      oldLogger = logger;
+    });
+
+    afterEach(function() {
+      logger = oldLogger;
+    });
+
+    it('should drop first arg if empty', function() {    
+      // Create a new logger with an empty namespace.
+      logger = fxaLog();
+      logger.propagate = false;
+      logger.addHandler(handler);
+
+      var out = log('foo');
+      assert(tv4.validate(out, HEKA_SCHEMA));
+      assert.equal(out.Type, 'foo');
+    });
   });
 
   it('should map to syslog severity', function() {
