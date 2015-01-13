@@ -21,7 +21,7 @@ var writer = {
   }
 };
 
-var logger = fxaLog("test.schema");
+var logger = fxaLog('test.schema');
 logger.propagate = false;
 var handler = new intel.handlers.Stream({
   stream: writer,
@@ -43,7 +43,7 @@ describe('schema', function() {
     assert.equal(out.Type, 'test.schema.foo');
   });
 
-  describe("with emtpy namespace", function() {
+  describe('with empty namespace', function() {
     var oldLogger;
 
     beforeEach(function() {
