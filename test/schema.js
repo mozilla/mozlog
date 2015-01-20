@@ -43,6 +43,29 @@ describe('schema', function() {
     assert.equal(out.Type, 'test.schema.foo');
   });
 
+  describe('with empty namespace', function() {
+    var oldLogger;
+
+    beforeEach(function() {
+      oldLogger = logger;
+    });
+
+    afterEach(function() {
+      logger = oldLogger;
+    });
+
+    it('should drop first arg if empty', function() {    
+      // Create a new logger with an empty namespace.
+      logger = fxaLog();
+      logger.propagate = false;
+      logger.addHandler(handler);
+
+      var out = log('foo');
+      assert(tv4.validate(out, HEKA_SCHEMA));
+      assert.equal(out.Type, 'foo');
+    });
+  });
+
   it('should map to syslog severity', function() {
     var out = log('foo');
     assert(tv4.validate(out, HEKA_SCHEMA));
