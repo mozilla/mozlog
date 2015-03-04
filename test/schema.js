@@ -79,11 +79,11 @@ describe('schema', function() {
   });
 
   it('should serialize objects to JSON strings', function() {
-    var obj = { foo: { bar: 'baz' } };
+    var obj = { foo: { bar: 'baz' }, quux: 'baz' };
     var out = log('json', { obj: obj });
 
     assert(tv4.validate(out, HEKA_SCHEMA));
-    assert.equal(out.Fields.obj, '{"foo":{"bar":"baz"}}');
+    assert.equal(out.Fields.obj, '{"foo":{"bar":"baz"},"quux":"baz"}');
   });
 
   // worth doing? could slow things down
