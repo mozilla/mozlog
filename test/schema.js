@@ -86,8 +86,7 @@ describe('schema', function() {
     assert.equal(out.Fields.obj, '{"foo":{"bar":"baz"},"quux":"baz"}');
   });
 
-  // worth doing? could slow things down
-  it.skip('should serialize buffers nested in objects', function() {
+  it('should serialize buffers nested in objects', function() {
     var obj = { food: Buffer('c0ffee', 'hex'), bar: 3 };
     var out = log('jsonbuffers', { obj: obj });
 
