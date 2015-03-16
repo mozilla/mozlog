@@ -1,6 +1,6 @@
 {
   "name": "mozlog",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Logging utility that outputs records for Heka.",
   "main": "lib/index.js",
   "dependencies": {
@@ -8,9 +8,9 @@
     "merge": "^1.2.0"
   },
   "devDependencies": {
-    "insist": "~0.2.3",
-    "mocha": "~1.21.4",
-    "tv4": "~1.1.0"
+    "insist": "^0.2.3",
+    "mocha": "^2.0",
+    "tv4": "^1.1.0"
   },
   "scripts": {
     "test": "mocha --check-leaks --ui bdd"
