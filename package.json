@@ -1,6 +1,6 @@
 {
   "name": "mozlog",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Logging utility that outputs records for Heka.",
   "main": "lib/index.js",
   "dependencies": {

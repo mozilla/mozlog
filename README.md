@@ -24,6 +24,7 @@ require('mozlog').config({
   level: 'verbose', //default is INFO
   fmt: 'pretty', //default is 'heka'
   debug: true, //default is false
+  stream: process.stderr //default is process.stdout
 });
 ```
 
