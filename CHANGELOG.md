@@ -1,3 +1,11 @@
+### 2.0.3
+
+- improve exception logging
+
+### 2.0.2
+
+- improve debug error messages, intercept uncaughtExceptions
+
 ### 2.0.1
 
 - Added `stream` to `mozlog.config(options)`
