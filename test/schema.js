@@ -34,7 +34,7 @@ function log() {
   return JSON.parse(lastStr);
 }
 
-/*global describe,it*/
+/*global describe,it,beforeEach,afterEach*/
 
 describe('schema', function() {
   it('should use first arg + logger name for Type', function() {
@@ -100,5 +100,12 @@ describe('schema', function() {
     var out = log('jsoncircles', { obj: obj });
     assert(tv4.validate(out, HEKA_SCHEMA));
     assert.equal(out.Fields.obj, '{"foo":{"bar":"[Circular]"}}');
+  });
+
+  it('should serialize errors', function() {
+    var err1 = new Error('foo');
+    var out = log('errors', err1);
+    assert(tv4.validate(out, HEKA_SCHEMA));
+    assert.equal(out.Fields.error, 'Error: foo');
   });
 });
