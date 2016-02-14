@@ -5,6 +5,8 @@ node_js:
   - '0.12'
   - '4'
 
+sudo: false
+
 notifications:
   email:
     smcarthur@mozilla.com
