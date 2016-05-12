@@ -1,3 +1,7 @@
+### 2.0.4
+
+- fix exception when Fields is undefined
+
 ### 2.0.3
 
 - improve exception logging
