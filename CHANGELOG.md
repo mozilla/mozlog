@@ -1,3 +1,7 @@
+### 2.0.5
+
+- convert `Error`s to `String`s in `pretty` format
+
 ### 2.0.4
 
 - fix exception when Fields is undefined
@@ -14,7 +18,7 @@
 
 - Added `stream` to `mozlog.config(options)`
 
-### 2.0.0
+## 2.0.0
 
 Breaking changes:
 
