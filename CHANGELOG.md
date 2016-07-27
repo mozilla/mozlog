@@ -1,3 +1,8 @@
+### 2.0.6
+
+- refactor `debug` and `uncaught` filters into a single `Handler
+- fix `uncaught` exceptions triggering `debug` assertions
+
 ### 2.0.5
 
 - convert `Error`s to `String`s in `pretty` format
