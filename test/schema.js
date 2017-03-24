@@ -2,15 +2,18 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+'use strict'
+
 const assert = require('insist');
 const tv4 = require('tv4');
 const intel = require('intel');
 const HEKA_SCHEMA = require('./schema.json');
+const NAMESPACE = 'mozlog'
 
-const fxaLog = require('../');
+const mozlog = require('../');
 
-fxaLog.config({
-  app: 'mozlog'
+const fxaLog = mozlog({
+  app: NAMESPACE
 });
 
 var lastStr;
@@ -25,7 +28,7 @@ var logger = fxaLog('test.schema');
 logger.propagate = false;
 var handler = new intel.handlers.Stream({
   stream: writer,
-  formatter: new fxaLog.HekaFormatter()
+  formatter: new mozlog.HekaFormatter()
 });
 logger.addHandler(handler);
 
@@ -54,15 +57,10 @@ describe('schema', function() {
       logger = oldLogger;
     });
 
-    it('should drop first arg if empty', function() {    
+    it('should drop first arg if empty', function() {
       // Create a new logger with an empty namespace.
       logger = fxaLog();
-      logger.propagate = false;
-      logger.addHandler(handler);
-
-      var out = log('foo');
-      assert(tv4.validate(out, HEKA_SCHEMA));
-      assert.equal(out.Type, 'foo');
+      assert.equal(logger._name, NAMESPACE);
     });
   });
 
@@ -107,5 +105,21 @@ describe('schema', function() {
     var out = log('errors', err1);
     assert(tv4.validate(out, HEKA_SCHEMA));
     assert.equal(out.Fields.error, 'Error: foo');
+  });
+});
+
+describe('multiple instances', () => {
+  it('can create different instances', () => {
+    const one = mozlog('one');
+    const two = mozlog('two');
+
+    assert.equal(one('a')._name, 'one.a');
+    assert.equal(two('b')._name, 'two.b');
+  });
+
+  it('has deprecated .config()', () => {
+    mozlog.config('depr');
+    const log = mozlog('hello');
+    assert.equal(log._name, 'depr.hello');
   });
 });

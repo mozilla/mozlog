@@ -11,15 +11,15 @@ npm install --save mozlog
 
 ## Usage
 
-You must configure `mozlog` one time before using it's loggers. This is
+You must create a  `mozlog` instance before using it's loggers. This is
 essentially setting the `app` name, the `level`, and the `fmt`.
 
 For the brave (or those who know `intel`'s configuration options), you
 can pass a `config` property to have fine-grained control.
 
 ```js
-// once, such as at app startup
-require('mozlog').config({
+// create your mozlog instance
+const mozlog = require('mozlog')({
   app: 'fxa-oauth-server',
   level: 'verbose', //default is INFO
   fmt: 'pretty', //default is 'heka'
@@ -35,8 +35,7 @@ developing, so the `pretty` formatter will help.
 In production, the defaults will serve you well: `info` and `heka`.
 
 ```js
-// elsewhere
-var log = require('mozlog')('routes.client.register');
+var log = mozlog('routes.client.register');
 
 log.info(op, { some: details });
 // such as
