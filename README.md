@@ -23,6 +23,7 @@ const mozlog = require('mozlog')({
   app: 'fxa-oauth-server',
   level: 'verbose', //default is INFO
   fmt: 'pretty', //default is 'heka'
+  uncaught: 'exit', // default is 'log', also available as 'ignore'
   debug: true, //default is false
   stream: process.stderr //default is process.stdout
 });
