@@ -1,3 +1,12 @@
+## 2.1
+
+- change default behavior to return `mozlog` instances instead of
+  keeping a global state
+
+  Reverts to 2.0 behavior if `mozlog.config` is called, but this
+  behavior is deprecated.
+- add `uncaught` option, allowed values: `'exit'`, `'log'`, `'ignore'`
+
 ### 2.0.6
 
 - refactor `debug` and `uncaught` filters into a single `Handler
