@@ -1,4 +1,8 @@
-## 2.1
+### 2.1.1
+
+- fix `mozlog.config` being called multiple times
+
+## 2.1.0
 
 - change default behavior to return `mozlog` instances instead of
   keeping a global state
