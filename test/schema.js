@@ -121,5 +121,9 @@ describe('multiple instances', () => {
     mozlog.config('depr');
     const log = mozlog('hello');
     assert.equal(log._name, 'depr.hello');
+
+    mozlog.config('depr2');
+    const log2 = mozlog('hi');
+    assert.equal(log2._name, 'depr2.hi');
   });
 });
