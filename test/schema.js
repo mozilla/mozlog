@@ -106,6 +106,12 @@ describe('schema', function() {
     assert(tv4.validate(out, HEKA_SCHEMA));
     assert.equal(out.Fields.error, 'Error: foo');
   });
+
+  it('should coerce messages to strings', function() {
+    var out = log('message', 42);
+    assert(tv4.validate(out, HEKA_SCHEMA));
+    assert.strictEqual(out.Fields.msg, '42');
+  });
 });
 
 describe('multiple instances', () => {
