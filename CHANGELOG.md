@@ -1,3 +1,7 @@
+### 2.2.0
+
+- Coerce Fields.msg to a string if necessary
+
 ### 2.1.1
 
 - fix `mozlog.config` being called multiple times
