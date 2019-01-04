@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "dependencies": {
     "intel": "^1.0.0",
-    "merge": "^1.2.0"
+    "merge": "^1.2.1"
   },
   "devDependencies": {
     "insist": "^0.2.3",
