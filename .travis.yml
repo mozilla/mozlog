@@ -1,19 +1,9 @@
 language: node_js
 
 node_js:
-  - '4'
-  - '6'
-  - '8'
+  - '10'
+  - '12'
   - 'lts/*'
   - 'stable'
 
 sudo: false
-
-notifications:
-  email:
-    smcarthur@mozilla.com
-  irc:
-    channels:
-      - 'irc.mozilla.org#fxa-bots'
-    use_notice: false
-    skip_join: false
