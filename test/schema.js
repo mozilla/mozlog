@@ -8,7 +8,7 @@ const assert = require('insist');
 const tv4 = require('tv4');
 const intel = require('intel');
 const HEKA_SCHEMA = require('./schema.json');
-const NAMESPACE = 'mozlog'
+const NAMESPACE = 'mozlog_schema'
 
 const mozlog = require('../');
 
