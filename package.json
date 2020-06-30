@@ -21,7 +21,7 @@
     "url": "https://github.com/mozilla/mozlog"
   },
   "author": "Sean McArthur <sean.monstar@gmail.com> (http://seanmonstar.com/)",
-  "license": "MPLv2.0",
+  "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/mozilla/mozlog/issues"
   },
